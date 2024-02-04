@@ -28,3 +28,5 @@ Ikuti langkah-langkah berikut:
     ```bash
     php artisan serve
     ```
+
+7. Generate App Key pada Halaman localhost
