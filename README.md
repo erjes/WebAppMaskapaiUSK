@@ -12,8 +12,8 @@ Ikuti langkah-langkah berikut:
 
 2. Rename `.env.example` Menjadi `.env`.
 
-3. Install Composer 
-  ```bash
+3. Install Composer:
+   ```bash
     composer install
     ```
 
