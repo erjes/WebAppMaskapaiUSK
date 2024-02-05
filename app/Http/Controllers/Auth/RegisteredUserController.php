@@ -38,9 +38,10 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $role = $request->role;
 
         $user = User::create([
-            'role' => $request->role,
+            'role' => $role,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -50,6 +51,10 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        if($role='unvalidated'){
+            return redirect('/unvalidated');
+        }else{
+            return redirect('/home');
+        }
     }
 }
