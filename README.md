@@ -31,7 +31,7 @@ Ikuti langkah-langkah berikut:
 
 7. Generate App Key pada Halaman localhost
 
-8.    ```bash
+8.  ```bash
     npm install
     ```
 
