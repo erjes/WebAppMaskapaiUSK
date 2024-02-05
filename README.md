@@ -36,7 +36,7 @@ Ikuti langkah-langkah berikut:
     ```
 
 9. ```bash
-    npm run build
+   npm run build
     ```
    
 10. ```bash
