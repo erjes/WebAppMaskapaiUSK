@@ -118,6 +118,6 @@ class maskapaiController extends Controller
     {
         $flight = Flight::findOrFail($id_flight);
         $flight->delete();
-        return redirect()->route('admin.dashboard')->with('success', 'Airline deleted successfully');
+        return redirect()->route('maskapai.dashboard')->with('success', 'Airline deleted successfully');
     }
 }

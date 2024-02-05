@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
 
         if($role='unvalidated'){
             return redirect('/unvalidated');
-        }else{
+        }else if($role='user'){
             return redirect('/home');
         }
     }

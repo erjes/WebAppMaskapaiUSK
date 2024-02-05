@@ -23,7 +23,12 @@ class adminController extends Controller
 
         $name = $request->name;
 
+        $id = User::where('name', $name)->pluck('id')->first();
+        $idAsString = (string) $id;
+        $idAsString = strval($id);
+
         airline::create([
+            'id_airline' => $idAsString,
             'name' => $name,
         ]);
 
