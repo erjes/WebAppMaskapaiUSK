@@ -30,3 +30,15 @@ Ikuti langkah-langkah berikut:
     ```
 
 7. Generate App Key pada Halaman localhost
+
+8.    ```bash
+    npm install
+    ```
+
+9. ```bash
+    npm run build
+    ```
+   
+10. ```bash
+    npm run dev
+    ```
