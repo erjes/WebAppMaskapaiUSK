@@ -13,12 +13,18 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('maskapai.dashboard')" :active="request()->routeIs('maskapai.dashboard')">
-                        {{ __('Maskapai Dashboard') }}
+                        {{ __('Flight Report') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('transactions')" :active="request()->routeIs('transactions')">
                         {{ __('Confirm transactions') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('transaction.report')" :active="request()->routeIs('transaction.report')">
+                        {{ __('Transaction Report') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -73,13 +79,19 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('maskapai.dashboard')" :active="request()->routeIs('maskapai.dashboard')">
-                {{ __('Maskapai Dashboard') }}
+                {{ __('Flight Report') }}
             </x-responsive-nav-link>
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('transactions')" :active="request()->routeIs('transactions')">
                 {{ __('Confirm transactions') }}
+            </x-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('transaction.report')" :active="request()->routeIs('transaction.report')">
+                {{ __('Transactions Report') }}
             </x-responsive-nav-link>
         </div>
         <!-- Responsive Settings Options -->

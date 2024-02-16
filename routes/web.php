@@ -40,9 +40,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment/{id}', [userController::class, 'payment'])->name('pay.booking');
     Route::get('/home', function () {return view('dashboard');})->name('dashboard');
 });
+
 Route::middleware('role:unvalidated')->group(function () {
     Route::get('/unvalidated', [maskapaiController::class, 'indexUnvalidated'])->name('maskapai.unvalidated');
 });
+
 Route::middleware('role:maskapai')->group(function () {
     Route::get('/maskapaidashboard', [maskapaiController::class, 'index'])->name('maskapai.dashboard');
     Route::get('/addflight', [maskapaiController::class, 'create'])->name('add.flight');
@@ -52,7 +54,10 @@ Route::middleware('role:maskapai')->group(function () {
     Route::get('/confirmtransaction', [maskapaiController::class, 'indexconfirmtransaction'])->name('transactions');
     Route::get('/confirmtransaction/{id}', [maskapaiController::class, 'confirmtransaction'])->name('confirm.transaction');
     Route::get('/declinetransaction/{id}', [maskapaiController::class, 'declinetransaction'])->name('decline.transaction');
+    Route::get('/reportts', [maskapaiController::class, 'transactionreport'])->name('transaction.report');
+    Route::get('/details/{id}', [maskapaiController::class, 'details'])->name('details');
     Route::post('/deleteflight/{id}', [maskapaiController::class, 'destroy'])->name('delete.flight');
+    Route::get('/searchflight', [maskapaiController::class, 'searchflight'])->name('search.flight');
 });
 Route::middleware('role:admin')->group(function () {
     Route::post('/approveairline', [adminController::class, 'store'])->name('admin.approve');

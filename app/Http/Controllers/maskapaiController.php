@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\customer;
 use App\Models\Flight;
 use App\Models\transaction;
 use Illuminate\Http\Request;
@@ -41,6 +42,18 @@ class maskapaiController extends Controller
         $transaction->save();
         return redirect()->back();
     }
+    public function transactionreport()
+    {
+        $transaction = transaction::where('payment_status','CONFIRMED')->get();
+        return view('maskapai.transactionreport', compact('transaction'));
+    }
+    public function details(Request $request)
+    {
+        $transaction = transaction::where($request->id_transaction)->get();
+        $transaction = transaction::where($request->id_transaction)->get();
+        return view('maskapai.details', compact('flightdata','customerdata'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -119,5 +132,19 @@ class maskapaiController extends Controller
         $flight = Flight::findOrFail($id_flight);
         $flight->delete();
         return redirect()->route('maskapai.dashboard')->with('success', 'Airline deleted successfully');
+    }
+
+    public function searchflight(Request $request)
+    {
+        $no_booking = $request->no_booking;
+
+
+        $transaction = transaction::where('no_booking', $no_booking)->get();
+
+        if ($transaction) {
+        return view('maskapai.transactionreport', compact('transaction'));
+        } else {
+            return view('no-results');
+        }
     }
 }
